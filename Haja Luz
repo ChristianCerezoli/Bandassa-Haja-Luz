@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandassa Haja Luz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos gerais */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Fraunces', serif;
+            background-color: #f9f9f9;
+            color: #000;
+            padding-top: 150px; /* Espaço para o cabeçalho fixo e a barra de navegação */
+        }
+
+        /* Cabeçalho fixo */
+        header {
+            text-align: center;
+            background-color: #169a7a;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Mantém o cabeçalho acima de tudo */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+
+        /* Barra de navegação */
+        .nav-bar {
+            background-color: #d9f2ec; /* Tom suave que combina com o verde */
+            padding: 10px 15px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 70px; /* Abaixo do cabeçalho */
+            left: 0;
+            z-index: 999;
+        }
+
+        .nav-bar nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            overflow-x: auto; /* Permite rolagem horizontal */
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch; /* Melhora a rolagem em dispositivos móveis */
+        }
+
+        .nav-bar nav a {
+            color: #169a7a;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 5px 10px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-bar nav a:hover {
+            background-color: #169a7a;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        /* Conteúdo principal */
+        .container {
+            padding: 20px;
+        }
+
+        .cifra-container {
+            background: #fff;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .cifra {
+            line-height: 1.5;
+            font-family: 'Fraunces', serif;
+            font-size: 1rem;
+        }
+
+        .cifra pre {
+            white-space: pre-wrap;
+            line-height: 1.8;
+        }
+
+        /* Nome da música */
+        .cifra .titulo {
+            font-size: 1.5rem;
+            color: #169a7a;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .cifra .acorde {
+            color: #169a7a;
+            font-weight: bold;
+        }
+
+        /* Ajuste para os botões de instrumentos */
+        .instrument-buttons {
+            margin: 10px 0;
+            display: flex;
+            justify-content: flex-start; /* Alinhamento à esquerda */
+            gap: 8px;
+            flex-wrap: wrap; /* Permite quebra em dispositivos pequenos */
+        }
+
+        .titulo {
+            text-align: left; /* Garante alinhamento à esquerda do título */
+        }
+
+        /* Botões responsivos e alinhados */
+        .instrument-buttons button {
+            background-color: #169a7a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: 'Fraunces', serif;
+            font-size: 0.8rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .instrument-buttons button:hover {
+            background-color: #0f7b60;
+            transform: scale(1.05);
+        }
+
+        /* Estilo adicional: informações da música */
+        .song-info {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f1f5f9;
+        }
+
+        .details {
+            font-size: 0.9rem;
+            color: #333;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .song-content {
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 3px solid #169a7a;
+            border-radius: 8px;
+        }
+
+        .song-content p {
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            .instrument-buttons button {
+                padding: 4px 8px;
+                font-size: 0.75rem;   
+            }
+
+            /* Rodapé */
+            footer {
+                text-align: center;
+                padding: 10px 0;
+                background-color: #169a7a;
+                color: #fff;
+                font-size: 0.9em;
+                position: fixed;
+                width: 100%;
+                bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bandassa Haja Luz</h1>
+    </header>
+
+    <div class="nav-bar">
+        <nav>
+            <a href="#tudo-e-teu">Tudo é Teu</a>
+            <a href="#senhor">Senhor</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        <!-- Primeira cifra -->
+        <div id="tudo-e-teu" class="cifra-container">
+            <div class="cifra">
+                <div class="titulo">Tudo é Teu</div>
+                <div class="instrument-buttons">
+                    <button onclick="window.open('https://youtube.com/guitarra', '_blank')">Violão</button>
+                    <button onclick="window.open('https://youtube.com/guitarra', '_blank')">Guitarra</button>
+                    <button onclick="window.open('https://youtube.com/baixo', '_blank')">Baixo</button>
+                    <button onclick="window.open('https://youtube.com/bateria', '_blank')">Bateria</button>
+                </div>
+                <pre>
+Tom: <span class="acorde">G</span>  Compasso: <span class="acorde">4/4</span>  bpm: <span class="acorde">70</span>
+
+Introdução:
+<span class="acorde">|G  |C/G  |Em7  A7  |Dsus9</span>    
+<span class="acorde">|G  |C/G  |A7  |Dsus9  Dadd9/F#<sub>4</sub></span>
+
+Estrofe:
+<span class="acorde">|G</span> 
+  Tudo o que eu tenho,
+<span class="acorde">|C/G</span>
+  Tudo o que eu sou
+<span class="acorde">|G</span> 
+  Confio às Tuas mãos, 
+   <span class="acorde">2/4|C/G</span>         <span class="acorde">|Dadd4/A</span>
+Me entrego ao Teu amor
+<span class="acorde">|G</span>                                                            
+  Meus planos e meus sonhos,       
+<span class="acorde">|C/G</span>
+  Desejos e aflições,
+<span class="acorde">   |G</span>                
+Despejo aos Teus pés, 
+<span class="acorde">2/4|C/G</span>          <span class="acorde">|Dadd4/A</span>
+Confio em Teu querer.
+
+Refrão:
+     <span class="acorde">|G            |C/G</span>                                          
+Pois tudo é Teu Senhor, 
+      <span class="acorde">|Em7          A7</span>
+Minha vida, meu louvor, 
+           <span class="acorde">|Dsus9  Dadd9/F#<sub>4</sub></span>
+Minha gratidão.
+<span class="acorde">|G            |C/G       |Em7</span>
+Tudo é Teu Senhor, minha voz, 
+         <span class="acorde">A7/C#       |Dsus9</span>                     
+O meu viver, meu coração,
+<span class="acorde">|B/D#        |C/E</span>   
+Toma os dias meus, 
+ <span class="acorde">|Em7          D/F#</span>    
+E usa quem eu sou pra o Teu 
+<span class="acorde">|G</span> 
+louvor.
+
+Interlúdio:
+<span class="acorde">|G  |C/G  |A7  |Dsus9  Dadd9/F#<sub>4</sub></span>
+
+Estrofe:
+<span class="acorde">|G</span>    
+  Quando o silêncio invade,        
+<span class="acorde">|C/G</span>  
+  Tua voz me guia a crer,
+<span class="acorde">|G</span> 
+  Nos momentos mais difíceis, 
+ <span class="acorde">2/4|C/G         |Dadd4/A</span>      
+Tua mão me faz viver,
+<span class="acorde">|G</span> 
+  És o meu abrigo, 
+<span class="acorde">|C/G</span> 
+  A paz em meio a dor,
+<span class="acorde">|G</span>
+    Seguro sou em Ti, 
+<span class="acorde">2/4|C/G         |Dadd4/A</span> 
+ Refúgio e salvação.
+
+Refrão:
+     <span class="acorde">|G            |C/G</span>                                          
+Pois tudo é Teu Senhor, 
+      <span class="acorde">|Em7          A7</span>
+Minha vida, meu louvor, 
+           <span class="acorde">|Dsus9  Dadd9/F#<sub>4</sub></span>
+Minha gratidão.
+<span class="acorde">|G            |C/G       |Em7</span>
+Tudo é Teu Senhor, minha voz, 
+         <span class="acorde">A7/C#       |Dsus9</span>                     
+O meu viver, meu coração,
+<span class="acorde">|B/D#        |C/E</span>   
+Toma os dias meus, 
+ <span class="acorde">|Em7          D/F#</span>    
+E usa quem eu sou pra o Teu 
+<span class="acorde">|G</span> 
+louvor.
+
+Ponte:
+<span class="acorde">|Eb/G       F/A       |G/B </span>
+Tudo o que sou vem de Ti,
+<span class="acorde">|Eb/G    F/A     |G/B </span>
+ És a razão do viver.
+     <span class="acorde">|Eb/G   F/A  |G/B </span>
+Tua graça me alcançou, 
+      <span class="acorde">|Eb/G      F/A      |G/B  |E </span>
+E pra sempre eu vou Te adorar.
+
+Refrão:
+     <span class="acorde">|A            |D/A</span>                                          
+Pois tudo é Teu Senhor, 
+      <span class="acorde">|F#m7         B7</span>
+Minha vida, meu louvor, 
+           <span class="acorde">|Eadd9  Eadd9/G#<sub>4</sub></span>
+Minha gratidão.
+<span class="acorde">|A            |D/A       |F#m7</span>
+Tudo é Teu Senhor, minha voz, 
+         <span class="acorde">B7/D#       |Eadd9</span>                     
+O meu viver, meu coração,
+<span class="acorde">|C#/E#       |D/F#</span>   
+Toma os dias meus, 
+ <span class="acorde">|F#m7         E/G#</span>    
+E usa quem eu sou pra o Teu
+<span class="acorde">|A</span> 
+louvor.
+                </pre>
+            </div>
+        </div>
+
+        <!-- Segunda cifra -->
+        <div id="senhor" class="cifra-container">
+            <div class="cifra">
+                <div class="titulo">Senhor</div>
+                <div class="instrument-buttons">
+                    <button onclick="window.open('https://youtube.com/guitarra', '_blank')">Violão</button>
+                    <button onclick="window.open('https://youtube.com/guitarra', '_blank')">Guitarra</button>
+                    <button onclick="window.open('https://youtube.com/baixo', '_blank')">Baixo</button>
+                    <button onclick="window.open('https://youtube.com/bateria', '_blank')">Bateria</button>
+                </div>
+                <pre>
+Tom: <span class="acorde">G</span> Compasso: <span class="acorde">4/4</span> bpm: <span class="acorde">70</span>
+...
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Bandassa Haja Luz
+    </footer>
+</body>
+</html>
